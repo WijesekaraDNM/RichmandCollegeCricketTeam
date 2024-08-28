@@ -250,7 +250,10 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../components/HomeNavbar';
 import RCCRIC from '../assets/images/bg.png';
 import CroppedImage from '../assets/images/Cropped.png';
+
+
 import NewsSlider from '../components/NewsSlider';
+
 
 const HomePage = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
@@ -265,7 +268,9 @@ const HomePage = () => {
   }, []);
 
   return (
+\
     <>
+
     <div className="relative h-screen w-full">
       <div 
         className={`absolute inset-0 ${isImageLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}
@@ -287,7 +292,9 @@ const HomePage = () => {
               style={{ 
                 fontSize: '11rem', 
                 lineHeight: '1', 
+
                 animationDelay: '1.5s', 
+
                 background: 'linear-gradient(to right, #0E1E79, #1A68DC)', // Gradient colors
                 WebkitBackgroundClip: 'text', // Clip the background to the text
                 WebkitTextFillColor: 'transparent', // Fill the text with the gradient
@@ -305,13 +312,17 @@ const HomePage = () => {
           />
 
           {/* "COLLEGE" Text on Top of Cropped Image */}
+
           <div className="absolute bottom-0 w-full text-center z-20">
+
             <div 
               className="font-bold text-[#FFCB05] animate-slide-up"
               style={{ 
                 fontSize: '11rem', 
                 lineHeight: '1', 
+
                 animationDelay: '1.5s' 
+
               }} 
             >
               COLLEGE
@@ -320,8 +331,10 @@ const HomePage = () => {
         </div>
       </div>
     </div>
+
     <NewsSlider />
     </>
+
   );
 };
 
