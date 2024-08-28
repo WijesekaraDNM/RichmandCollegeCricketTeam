@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @keyframes slide-down {
   0% {
     transform: translateY(-100%);
