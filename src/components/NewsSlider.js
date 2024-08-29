@@ -23,7 +23,7 @@ const NewsSlider = () => {
     slidesToScroll: 1,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 2000,
     pauseOnHover: true,
     customPaging: (i) => (
       <div className="dot w-3 h-3 rounded-full bg-gray-500"></div>

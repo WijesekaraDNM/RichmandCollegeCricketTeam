@@ -19,7 +19,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-black bg-opacity-70 p-1 fixed w-full z-30 top-0">
+    <nav className="bg-[#802F3B] bg-opacity-90 p-1 fixed w-full z-30 top-0">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo on the left */}
         <div>

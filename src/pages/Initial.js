@@ -253,6 +253,7 @@ import CroppedImage from '../assets/images/Cropped.png';
 
 
 import NewsSlider from '../components/NewsSlider';
+import UpcomingMatches from '../components/UpcommingMatchesSlider';
 
 
 const HomePage = () => {
@@ -316,7 +317,7 @@ const HomePage = () => {
           <div className="absolute bottom-0 w-full text-center z-20">
 
             <div 
-              className="font-bold text-[#FFCB05] animate-slide-up"
+              className="font-bold text-[#CBECFF] animate-slide-up"
               style={{ 
                 fontSize: '11rem', 
                 lineHeight: '1', 
@@ -333,6 +334,7 @@ const HomePage = () => {
     </div>
 
     <NewsSlider />
+    <UpcomingMatches />
     </>
 
   );
