@@ -1,181 +1,12 @@
-// import React, { useState } from 'react';
 
-// const PlayerForm = () => {
-//   const [formData, setFormData] = useState({
-//     name: '',
-//     dob: '',
-//     email: '',
-//     contactNo: '',
-//     battingStyle: '',
-//     bowlingStyle: '',
-//     status: '',
-//     role: '',
-//     image: null,
-//   });
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData({ ...formData, [name]: value });
-//   };
-
-//   const handleImageChange = (e) => {
-//     setFormData({ ...formData, image: e.target.files[0] });
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     console.log('Form submitted:', formData);
-//     // Add form submission logic here
-//   };
-
-//   return (
-//     <div className="flex justify-center items-center h-screen bg-gradient-to-r from-blue-500 to-purple-500 mt-28">
-//       <form
-//         onSubmit={handleSubmit}
-//         className="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg"
-//       >
-//         <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Player Registration Form</h2>
-        
-//         {/* Name */}
-//         <div className="mb-4">
-//           <label className="block text-gray-700 font-semibold mb-2">Name</label>
-//           <input
-//             type="text"
-//             name="name"
-//             value={formData.name}
-//             onChange={handleChange}
-//             required
-//             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-//           />
-//         </div>
-
-//         {/* DOB */}
-//         <div className="mb-4">
-//           <label className="block text-gray-700 font-semibold mb-2">Date of Birth</label>
-//           <input
-//             type="date"
-//             name="dob"
-//             value={formData.dob}
-//             onChange={handleChange}
-//             required
-//             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-//           />
-//         </div>
-
-//         {/* Email */}
-//         <div className="mb-4">
-//           <label className="block text-gray-700 font-semibold mb-2">Email</label>
-//           <input
-//             type="email"
-//             name="email"
-//             value={formData.email}
-//             onChange={handleChange}
-//             required
-//             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-//           />
-//         </div>
-
-//         {/* Contact No */}
-//         <div className="mb-4">
-//           <label className="block text-gray-700 font-semibold mb-2">Contact No</label>
-//           <input
-//             type="tel"
-//             name="contactNo"
-//             value={formData.contactNo}
-//             onChange={handleChange}
-//             required
-//             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-//           />
-//         </div>
-
-//         {/* Batting Style */}
-//         <div className="mb-4">
-//           <label className="block text-gray-700 font-semibold mb-2">Batting Style</label>
-//           <input
-//             type="text"
-//             name="battingStyle"
-//             value={formData.battingStyle}
-//             onChange={handleChange}
-//             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-//           />
-//         </div>
-
-//         {/* Bowling Style */}
-//         <div className="mb-4">
-//           <label className="block text-gray-700 font-semibold mb-2">Bowling Style</label>
-//           <input
-//             type="text"
-//             name="bowlingStyle"
-//             value={formData.bowlingStyle}
-//             onChange={handleChange}
-//             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-//           />
-//         </div>
-
-//         {/* Status */}
-//         <div className="mb-4">
-//           <label className="block text-gray-700 font-semibold mb-2">Status</label>
-//           <select
-//             name="status"
-//             value={formData.status}
-//             onChange={handleChange}
-//             required
-//             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-//           >
-//             <option value="" disabled>Select Status</option>
-//             <option value="Active">Active</option>
-//             <option value="Inactive">Inactive</option>
-//           </select>
-//         </div>
-
-//         {/* Role */}
-//         <div className="mb-4">
-//           <label className="block text-gray-700 font-semibold mb-2">Role</label>
-//           <select
-//             name="role"
-//             value={formData.role}
-//             onChange={handleChange}
-//             required
-//             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-//           >
-//             <option value="" disabled>Select Role</option>
-//             <option value="Batsman">Batsman</option>
-//             <option value="Bowler">Bowler</option>
-//             <option value="All-Rounder">All-Rounder</option>
-//             <option value="Wicket-Keeper">Wicket-Keeper</option>
-//           </select>
-//         </div>
-
-//         {/* Image Upload */}
-//         <div className="mb-6">
-//           <label className="block text-gray-700 font-semibold mb-2">Upload Image</label>
-//           <input
-//             type="file"
-//             name="image"
-//             onChange={handleImageChange}
-//             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-//           />
-//         </div>
-
-//         {/* Submit Button */}
-//         <button
-//           type="submit"
-//           className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-//         >
-//           Submit
-//         </button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default PlayerForm;
 import React, { useState } from 'react';
-import { FaEdit, FaTrash, FaPlus } from 'react-icons/fa'; // Import plus icon
-import PlayerForm from "../components/PlayerForm"
+import { FaEdit, FaTrash, FaPlus } from 'react-icons/fa';
+import PlayerForm from '../components/PlayerForm';
+import EditPlayerForm from '../components/EditPlayerForm';
 
 // Sample data
 const data = [
+  // Sample data here...
   {
     name: 'John Doe',
     dob: '1990-01-01',
@@ -202,9 +33,12 @@ const data = [
 
 const TableComponent = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isEditFormOpen, setIsEditFormOpen] = useState(false);
+  const [currentPlayer, setCurrentPlayer] = useState(null);
 
-  const handleEdit = (index) => {
-    console.log('Edit row:', index);
+  const handleEdit = (player) => {
+    setCurrentPlayer(player);
+    setIsEditFormOpen(true);
   };
 
   const handleDelete = (index) => {
@@ -213,6 +47,17 @@ const TableComponent = () => {
 
   const toggleForm = () => {
     setIsFormOpen(!isFormOpen);
+  };
+
+  const handleSavePlayer = (player) => {
+    // Logic to save player information, including image upload if necessary
+    setIsFormOpen(false);
+  };
+
+  const handleSaveEditPlayer = (player) => {
+    // Logic to save edited player information, including image upload if necessary
+    console.log('Player updated:', player);
+    setIsEditFormOpen(false);
   };
 
   return (
@@ -259,7 +104,7 @@ const TableComponent = () => {
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{item.role}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 flex space-x-4">
                   <button 
-                    onClick={() => handleEdit(index)} 
+                    onClick={() => handleEdit(item)} 
                     className="text-blue-600 hover:text-blue-800 text-xl"
                     aria-label="Edit"
                   >
@@ -278,7 +123,14 @@ const TableComponent = () => {
           </tbody>
         </table>
       </div>
-      {isFormOpen && <PlayerForm closeForm={toggleForm} />}
+      {isFormOpen && <PlayerForm closeForm={toggleForm} onSave={handleSavePlayer} />}
+      {isEditFormOpen && (
+        <EditPlayerForm 
+          player={currentPlayer} 
+          onClose={() => setIsEditFormOpen(false)} 
+          onSave={handleSaveEditPlayer} 
+        />
+      )}
     </div>
   );
 };
