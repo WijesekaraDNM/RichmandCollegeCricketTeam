@@ -17,6 +17,7 @@ const MatchDetails = () => {
       division: 'Division A',
       umpire: 'John Doe',
       type: 'ODI',
+      // type: 'ODI',
     },
     {
       matchName: 'Match 2',
