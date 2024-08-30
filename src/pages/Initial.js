@@ -65,7 +65,7 @@ const HomePage = () => {
             style={{ width: '85%' }} 
           />
 
-          {/* "COLLEGE" Text on Top of Cropped Image */}
+          {/* "COLLEGE" Text on Top of Cropped Images */}
 
           <div className="absolute bottom-0 w-full text-center z-20">
 
