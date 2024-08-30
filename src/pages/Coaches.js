@@ -16,6 +16,13 @@ const practiceSchedulesData = [
         endTime: '12:00 PM',
         type: 'Batting Practice'
     },
+    // {
+    //     id: 1,
+    //     venue: 'Colombo Ground',
+    //     startTime: '10:00 AM',
+    //     endTime: '12:00 PM',
+    //     type: 'Batting Practice'
+    // },
     {
         id: 2,
         venue: 'Galle Stadium',
