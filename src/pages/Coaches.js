@@ -21,7 +21,7 @@ const practiceSchedulesData = [
         venue: 'Galle Stadium',
         startTime: '02:00 PM',
         endTime: '04:00 PM',
-        type: 'Bowling Practices'
+        type: 'Bowling Practice'
     },
     {
         id: 3,
