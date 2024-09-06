@@ -546,20 +546,13 @@
 import React, { useState } from "react";
 import { FaEdit, FaTrash, FaPlus, FaClipboardList } from "react-icons/fa";
 import MatchStatPopup from "../components/MatchStatPopUp.js"; // Import the new popup component
-import ScoreCardPopup from "../components/ScoreCardPopup.js"; // Import the ScoreCardPopup component
-import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import EditPopup from "../components/EditMatchDetailPopup.js"; // Import the EditPopup component
 import FormPopup from "../components/MatchFormPopUp.js"; // Import the new FormPopup component
-import { FaXmark, FaBars } from "react-icons/fa6";
 import { GrLinkNext } from "react-icons/gr";
 import { GrLinkPrevious } from "react-icons/gr";
-import { IoHomeSharp } from "react-icons/io5";
-import { TbScoreboard } from "react-icons/tb";
-import { RiTeamFill } from "react-icons/ri";
-import { BiSolidCricketBall } from "react-icons/bi";
-import { BsPersonFill } from "react-icons/bs";
-import back2 from "../assets/images/back5.png";
-import logo from "../assets/images/rcclogo.png";
+import Navbar from "../components/Navbar.js";
+import NavbarToggleMenu from "../components/NavbarToggleMenu.js";
 
 const MatchDetails = () => {
   const [matches, setMatches] = useState([
@@ -688,36 +681,7 @@ const MatchDetails = () => {
 
   return (
     <div className=" flex relative w-full p-5 bg-gray-100 rounded-lg shadow-lg">
-      <div
-        className={`md:flex hidden flex-col md:w-[15%] justify-start items-center bg-gray-300 w-[15%] h-[40rem]`}
-        style={{
-          backgroundImage: `url(${back2})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backfaceVisibility: "revert-layer"
-        }}
-      >
-        <div className=" items-center w-full bg-opacity-40 bg-white flex justify-start p-2 ">
-          <img src={logo} className="flex opacity-100 w-20 h-20" alt="no" />
-        </div>
-        <ul className="w-full items-center justify-center mt-5">
-          <Link to={"/"} className=" flex gap-3 items-center p-2 pl-5 text-white w-full hover:bg-gray-300 hover:bg-opacity-10">
-            {" "}<IoHomeSharp /> Home
-          </Link>
-          <Link to={"/player"} className=" flex gap-3 items-center p-2 pl-5 text-white w-full hover:bg-gray-300 hover:bg-opacity-10">
-            {" "}<BsPersonFill /> Player
-          </Link >
-          <Link to={"/match"} className=" flex gap-3 items-center p-2 pl-5 text-white w-full hover:bg-gray-300 hover:bg-opacity-10">
-            {" "}<BiSolidCricketBall /> Match
-          </Link>
-          <Link to={"/scorecard/:matchId"} className=" flex gap-3 items-center p-2 pl-5 text-white w-full hover:bg-gray-300 hover:bg-opacity-10">
-            {" "}<TbScoreboard /> Score
-          </Link>
-          <Link to={"/team"} className=" flex gap-3 items-center p-2 pl-5 text-white w-full hover:bg-gray-300 hover:bg-opacity-10">
-            {" "}<RiTeamFill /> Team
-          </Link>
-        </ul>
-      </div>
+      <Navbar/>
       <div
         className=" relative md:w-[85%] w-[100%] bg-white lg:mx-3 p-5 rounded-lg shadow-lg"
         style={{
@@ -728,39 +692,7 @@ const MatchDetails = () => {
         }}
       >
         <div className="flex justify-between items-center mb-4">
-          <div className="flex md:hidden items-start justify-start ">
-            <button
-              className="text-black focus:outline-none m-4 focus:test-gray-500  "
-              onClick={toggleButton}
-            >
-              {isMenuOpen
-                ? <FaXmark className="text-lg " />
-                : <FaBars className="text-lg " />}
-            </button>
-          </div>
-          <div
-            className={`absolute space-y-2 z-30 mt-60 left-5 w-[200px] mb-2 rounded-l-lg justify-end items-center py-3 transition-all duration-500000 ease-in-out  bg-primary bg-opacity-10  shadow-lg border-[3px] border-opacity-50 ${isMenuOpen
-              ? " h-auto w-48 block justify-center items-center hover:transition-transform hovet:text-opacity-100  hover:duration-50000 hover:ease-in-out text-subText hover:text-opacity-100 hover:bg-white hover:border-opacity-100 mb-10"
-              : "hidden"}`}
-          >
-            <ul className=" flex flex-col gap-1 relative w-full !mt-[8.00px] !text-[12px] cursor-pointer px-1 ![font-family:'Inter',Helvetica]  items-start">
-              <Link to={"/"} className=" flex gap-3 items-center p-2 pl-5 text-black w-full hover:bg-gray-300 hover:bg-opacity-10">
-                {" "}<IoHomeSharp /> Home
-              </Link>
-              <Link to={"/"} className=" flex gap-3 items-center p-2 pl-5 text-black w-full hover:bg-gray-300 hover:bg-opacity-10">
-                {" "}<BsPersonFill /> Player
-              </Link>
-              <Link to={"/match"} className=" flex gap-3 items-center p-2 pl-5 text-black w-full hover:bg-gray-300 hover:bg-opacity-10">
-                {" "}<BiSolidCricketBall /> Match
-              </Link>
-              <Link to={"/scorecard/:matchId"} className=" flex gap-3 items-center p-2 pl-5 text-black w-full hover:bg-gray-300 hover:bg-opacity-10">
-                {" "}<TbScoreboard /> Score
-              </Link>
-              <Link to={"/team"} className=" flex gap-3 items-center p-2 pl-5 text-black w-full hover:bg-gray-300 hover:bg-opacity-10">
-                {" "}<RiTeamFill /> Team
-              </Link>
-            </ul>
-          </div>
+          <NavbarToggleMenu/>
           <h2 className="md:text-2xl text-xl mb-6 font-bold text-center text-gray-800">
             Match Details
           </h2>
