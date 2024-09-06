@@ -22,7 +22,6 @@ function App() {
          <Route path='/match' element={<MatchDetail/>} />
          <Route path="/scorecard/:matchId" element={<ScoreCardPage />} />
          <Route path="/team" element={<Team />} />
-
         </Routes>
       
    
