@@ -147,7 +147,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBell, FaUserCircle, FaChevronDown } from 'react-icons/fa'; // Import icons for profile, notifications, and dropdown arrow
 import Logo from '../assets/images/rcclogo.png'; 
-import flag from '../assets/images/flag2.png';
 const HomeNavbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState({
     home: false,
