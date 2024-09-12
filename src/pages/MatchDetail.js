@@ -1,549 +1,5 @@
-// import React, { useState } from 'react';
-// import { FaEdit, FaTrash, FaPlus, FaClipboardList } from 'react-icons/fa';
-
-// const MatchDetails = () => {
-//   const [formData, setFormData] = useState({
-//     matchName: '',
-//     time: '',
-//     venue: '',
-//     opponent: '',
-//     tier: '',
-//     division: '',
-//     umpire: '',
-//     type: '',
-//   });
-
-//   const [matches, setMatches] = useState([
-//     {
-//       matchName: 'Match 1',
-//       time: '2024-08-29T10:00',
-//       venue: 'Stadium A',
-//       opponent: 'Team X',
-//       tier: 'Tier 1',
-//       division: 'Division A',
-//       umpire: 'John Doe',
-//       type: 'ODI',
-//     },
-//     {
-//       matchName: 'Match 2',
-//       time: '2024-08-30T14:00',
-//       venue: 'Stadium B',
-//       opponent: 'Team Y',
-//       tier: 'Tier 2',
-//       division: 'Division B',
-//       umpire: 'Jane Smith',
-//       type: 'T20',
-//     },
-//   ]);
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData({ ...formData, [name]: value });
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     setMatches([...matches, formData]);
-//     setFormData({
-//       matchName: '',
-//       time: '',
-//       venue: '',
-//       opponent: '',
-//       tier: '',
-//       division: '',
-//       umpire: '',
-//       type: '',
-//     });
-//   };
-
-//   const handleEdit = (index) => {
-//     // Edit functionality can be added here
-//     console.log('Edit match at index:', index);
-//   };
-
-//   const handleDelete = (index) => {
-//     const updatedMatches = matches.filter((_, i) => i !== index);
-//     setMatches(updatedMatches);
-//   };
-
-//   const handleAddStat = (index) => {
-//     // Add match stat functionality can be added here
-//     console.log('Add Match Stat for match at index:', index);
-//   };
-
-//   const handleAddScoreCard = (index) => {
-//     // Add score card functionality can be added here
-//     console.log('Add Score Card for match at index:', index);
-//   };
-
-//   return (
-//     <div className="min-h-screen bg-gradient-to-r from-purple-400 to-indigo-500 p-8">
-//       {/* Form Section */}
-//       <div className="max-w-3xl mx-auto mb-10 bg-white p-6 rounded-lg shadow-lg">
-//         <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Add Match Details</h2>
-//         <form onSubmit={handleSubmit}>
-//           <div className="grid grid-cols-2 gap-6">
-//             <div className="mb-4">
-//               <label className="block text-gray-700 font-semibold mb-2">Match Name</label>
-//               <input
-//                 type="text"
-//                 name="matchName"
-//                 value={formData.matchName}
-//                 onChange={handleChange}
-//                 required
-//                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
-//               />
-//             </div>
-//             <div className="mb-4">
-//               <label className="block text-gray-700 font-semibold mb-2">Time</label>
-//               <input
-//                 type="datetime-local"
-//                 name="time"
-//                 value={formData.time}
-//                 onChange={handleChange}
-//                 required
-//                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
-//               />
-//             </div>
-//             <div className="mb-4">
-//               <label className="block text-gray-700 font-semibold mb-2">Venue</label>
-//               <input
-//                 type="text"
-//                 name="venue"
-//                 value={formData.venue}
-//                 onChange={handleChange}
-//                 required
-//                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
-//               />
-//             </div>
-//             <div className="mb-4">
-//               <label className="block text-gray-700 font-semibold mb-2">Opponent</label>
-//               <input
-//                 type="text"
-//                 name="opponent"
-//                 value={formData.opponent}
-//                 onChange={handleChange}
-//                 required
-//                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
-//               />
-//             </div>
-//             <div className="mb-4">
-//               <label className="block text-gray-700 font-semibold mb-2">Tier</label>
-//               <input
-//                 type="text"
-//                 name="tier"
-//                 value={formData.tier}
-//                 onChange={handleChange}
-//                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
-//               />
-//             </div>
-//             <div className="mb-4">
-//               <label className="block text-gray-700 font-semibold mb-2">Division</label>
-//               <input
-//                 type="text"
-//                 name="division"
-//                 value={formData.division}
-//                 onChange={handleChange}
-//                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
-//               />
-//             </div>
-//             <div className="mb-4">
-//               <label className="block text-gray-700 font-semibold mb-2">Umpire</label>
-//               <input
-//                 type="text"
-//                 name="umpire"
-//                 value={formData.umpire}
-//                 onChange={handleChange}
-//                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
-//               />
-//             </div>
-//             <div className="mb-4">
-//               <label className="block text-gray-700 font-semibold mb-2">Type</label>
-//               <select
-//                 name="type"
-//                 value={formData.type}
-//                 onChange={handleChange}
-//                 required
-//                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
-//               >
-//                 <option value="" disabled>Select Match Type</option>
-//                 <option value="Test">Test</option>
-//                 <option value="ODI">ODI</option>
-//                 <option value="T20">T20</option>
-//               </select>
-//             </div>
-//           </div>
-//           <button
-//             type="submit"
-//             className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
-//           >
-//             Add Match
-//           </button>
-//         </form>
-//       </div>
-
-//       {/* Table Section */}
-//       <div className="max-w-7xl mx-auto bg-white p-6 rounded-lg shadow-lg">
-//         <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Match Details</h2>
-//         <table className="min-w-full bg-white">
-//           <thead>
-//             <tr>
-//               <th className="py-2 px-4 bg-indigo-600 text-white">Match Name</th>
-//               <th className="py-2 px-4 bg-indigo-600 text-white">Time</th>
-//               <th className="py-2 px-4 bg-indigo-600 text-white">Venue</th>
-//               <th className="py-2 px-4 bg-indigo-600 text-white">Opponent</th>
-//               <th className="py-2 px-4 bg-indigo-600 text-white">Tier</th>
-//               <th className="py-2 px-4 bg-indigo-600 text-white">Division</th>
-//               <th className="py-2 px-4 bg-indigo-600 text-white">Umpire</th>
-//               <th className="py-2 px-4 bg-indigo-600 text-white">Type</th>
-//               <th className="py-2 px-4 bg-indigo-600 text-white">Actions</th>
-//             </tr>
-//           </thead>
-//           <tbody>
-//             {matches.map((match, index) => (
-//               <tr key={index} className="border-b">
-//                 <td className="py-2 px-4">{match.matchName}</td>
-//                 <td className="py-2 px-4">{match.time}</td>
-//                 <td className="py-2 px-4">{match.venue}</td>
-//                 <td className="py-2 px-4">{match.opponent}</td>
-//                 <td className="py-2 px-4">{match.tier}</td>
-//                 <td className="py-2 px-4">{match.division}</td>
-//                 <td className="py-2 px-4">{match.umpire}</td>
-//                 <td className="py-2 px-4">{match.type}</td>
-//                 <td className="py-2 px-4 flex space-x-2">
-//                   <button
-//                     onClick={() => handleEdit(index)}
-//                     className="text-blue-500 hover:text-blue-700"
-//                   >
-//                     <FaEdit />
-//                   </button>
-//                   <button
-//                     onClick={() => handleDelete(index)}
-//                     className="text-red-500 hover:text-red-700"
-//                   >
-//                     <FaTrash />
-//                   </button>
-//                   <button
-//                     onClick={() => handleAddStat(index)}
-//                     className="text-green-500 hover:text-green-700"
-//                   >
-//                     <FaClipboardList />
-//                   </button>
-//                   <button
-//                     onClick={() => handleAddScoreCard(index)}
-//                     className="text-yellow-500 hover:text-yellow-700"
-//                   >
-//                     <FaPlus />
-//                   </button>
-//                 </td>
-//               </tr>
-//             ))}
-//           </tbody>
-//         </table>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default MatchDetails;
-// import React, { useState } from 'react';
-// import { FaEdit, FaTrash, FaPlus, FaClipboardList } from 'react-icons/fa';
-// import MatchStatPopup from '../components/MatchStatPopUp.js'; // Import the new popup component
-// import ScoreCardPopup from '../components/ScoreCardPopup.js'; // Import the ScoreCardPopup component
-// import { useNavigate } from 'react-router-dom'; // Import useNavigate
-// import EditPopup from '../components/EditMatchDetailPopup.js'; // Import the EditPopup component
-// import FormPopup from '../components/MatchFormPopUp.js'; // Import the new FormPopup component
-
-// const MatchDetails = () => {
-//   const [formData, setFormData] = useState({
-//     matchName: '',
-//     time: '',
-//     venue: '',
-//     opponent: '',
-//     tier: '',
-//     division: '',
-//     umpire: '',
-//     type: '',
-//   });
-
-//   const [matches, setMatches] = useState([
-//     {
-//       matchName: 'Match 1',
-//       time: '2024-08-29T10:00',
-//       venue: 'Stadium A',
-//       opponent: 'Team X',
-//       tier: 'Tier 1',
-//       division: 'Division A',
-//       umpire: 'John Doe',
-//       type: 'ODI',
-//     },
-//     {
-//       matchName: 'Match 2',
-//       time: '2024-08-30T14:00',
-//       venue: 'Stadium B',
-//       opponent: 'Team Y',
-//       tier: 'Tier 2',
-//       division: 'Division B',
-//       umpire: 'Jane Smith',
-//       type: 'T20',
-//     },
-//   ]);
-
-//   const [isPopupOpen, setIsPopupOpen] = useState(false);
-//   const navigate = useNavigate();
-//  const [currentMatchIndex, setCurrentMatchIndex] = useState(null);
-//  const [isEditPopupOpen, setIsEditPopupOpen] = useState(false); // State for Edit Popup
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData({ ...formData, [name]: value });
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     setMatches([...matches, formData]);
-//     setFormData({
-//       matchName: '',
-//       time: '',
-//       venue: '',
-//       opponent: '',
-//       tier: '',
-//       division: '',
-//       umpire: '',
-//       type: '',
-//     });
-//   };
-
-//   const handleEdit = (index) => {
-//     setCurrentMatchIndex(index);
-//     setIsEditPopupOpen(true);
-//   };
-
-//   const handleDelete = (index) => {
-//     const updatedMatches = matches.filter((_, i) => i !== index);
-//     setMatches(updatedMatches);
-//   };
-
-//   const handleAddStat = (index) => {
-//     setCurrentMatchIndex(index);
-//     setIsPopupOpen(true); // Open the popup when the button is clicked
-//   };
-
-//   const handleAddScoreCard = (index) => {
-//     const matchId = index; // Use index or a unique ID from your match data
-//     navigate(`/scorecard/${matchId}`);
-//   };
-
-//   const handlePopupClose = () => {
-//     setIsPopupOpen(false);
-//     setCurrentMatchIndex(null);
-//   };
-
-//   const handlePopupSubmit = (statData) => {
-//     console.log('Match Stat Submitted:', statData);
-//     // You can now do something with the submitted statData and the current match
-//   };
-
-//   const handleEditPopupClose = () => {
-//     setIsEditPopupOpen(false);
-//     setCurrentMatchIndex(null);
-//   };
-
-//   const handleEditPopupSubmit = (updatedMatchData) => {
-//     const updatedMatches = matches.map((match, index) =>
-//       index === currentMatchIndex ? updatedMatchData : match
-//     );
-//     setMatches(updatedMatches);
-//     setIsEditPopupOpen(false);
-//     setCurrentMatchIndex(null);
-//   };
-
-//   return (
-//     <div className="min-h-screen bg-gradient-to-r from-purple-400 to-indigo-500 p-8">
-//       {/* Form Section */}
-//       <div className="max-w-3xl mx-auto mb-10 bg-white p-6 rounded-lg shadow-lg">
-//         <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Add Match Details</h2>
-//         <form onSubmit={handleSubmit}>
-//           <div className="grid grid-cols-2 gap-6">
-//             <div className="mb-4">
-//               <label className="block text-gray-700 font-semibold mb-2">Match Name</label>
-//               <input
-//                 type="text"
-//                 name="matchName"
-//                 value={formData.matchName}
-//                 onChange={handleChange}
-//                 required
-//                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
-//               />
-//             </div>
-//             <div className="mb-4">
-//               <label className="block text-gray-700 font-semibold mb-2">Time</label>
-//               <input
-//                 type="datetime-local"
-//                 name="time"
-//                 value={formData.time}
-//                 onChange={handleChange}
-//                 required
-//                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
-//               />
-//             </div>
-//             <div className="mb-4">
-//               <label className="block text-gray-700 font-semibold mb-2">Venue</label>
-//               <input
-//                 type="text"
-//                 name="venue"
-//                 value={formData.venue}
-//                 onChange={handleChange}
-//                 required
-//                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
-//               />
-//             </div>
-//             <div className="mb-4">
-//               <label className="block text-gray-700 font-semibold mb-2">Opponent</label>
-//               <input
-//                 type="text"
-//                 name="opponent"
-//                 value={formData.opponent}
-//                 onChange={handleChange}
-//                 required
-//                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
-//               />
-//             </div>
-//             <div className="mb-4">
-//               <label className="block text-gray-700 font-semibold mb-2">Tier</label>
-//               <input
-//                 type="text"
-//                 name="tier"
-//                 value={formData.tier}
-//                 onChange={handleChange}
-//                 required
-//                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
-//               />
-//             </div>
-//             <div className="mb-4">
-//               <label className="block text-gray-700 font-semibold mb-2">Division</label>
-//               <input
-//                 type="text"
-//                 name="division"
-//                 value={formData.division}
-//                 onChange={handleChange}
-//                 required
-//                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
-//               />
-//             </div>
-//             <div className="mb-4">
-//               <label className="block text-gray-700 font-semibold mb-2">Umpire</label>
-//               <input
-//                 type="text"
-//                 name="umpire"
-//                 value={formData.umpire}
-//                 onChange={handleChange}
-//                 required
-//                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
-//               />
-//             </div>
-//             <div className="mb-4">
-//               <label className="block text-gray-700 font-semibold mb-2">Type</label>
-//               <input
-//                 type="text"
-//                 name="type"
-//                 value={formData.type}
-//                 onChange={handleChange}
-//                 required
-//                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
-//               />
-//             </div>
-//           </div>
-//           <div className="text-center">
-//             <button
-//               type="submit"
-//               className="px-6 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
-//             >
-//               Add Match
-//             </button>
-//           </div>
-//         </form>
-//       </div>
-//   {/* Table Section */}
-//          <div className="max-w-7xl mx-auto bg-white p-6 rounded-lg shadow-lg">
-//        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Match Details</h2>
-//          <table className="min-w-full bg-white">
-//            <thead>
-//             <tr>
-//               <th className="py-2 px-4 bg-indigo-600 text-white">Match Name</th>
-//              <th className="py-2 px-4 bg-indigo-600 text-white">Time</th>
-//               <th className="py-2 px-4 bg-indigo-600 text-white">Venue</th>
-//                <th className="py-2 px-4 bg-indigo-600 text-white">Opponent</th>
-//                <th className="py-2 px-4 bg-indigo-600 text-white">Tier</th>
-//               <th className="py-2 px-4 bg-indigo-600 text-white">Division</th>
-//               <th className="py-2 px-4 bg-indigo-600 text-white">Umpire</th>
-//                 <th className="py-2 px-4 bg-indigo-600 text-white">Type</th>
-//                <th className="py-2 px-4 bg-indigo-600 text-white">Actions</th>
-//             </tr>
-//         </thead>
-//           <tbody>
-//            {matches.map((match, index) => (
-//               <tr key={index} className="border-b">
-//                 <td className="py-2 px-4">{match.matchName}</td>
-//                 <td className="py-2 px-4">{match.time}</td>
-//                 <td className="py-2 px-4">{match.venue}</td>
-//                 <td className="py-2 px-4">{match.opponent}</td>
-//                 <td className="py-2 px-4">{match.tier}</td>
-//                 <td className="py-2 px-4">{match.division}</td>
-//                 <td className="py-2 px-4">{match.umpire}</td>
-//                 <td className="py-2 px-4">{match.type}</td>
-//                 <td className="py-2 px-4 flex space-x-2">
-//                   <button
-//                     onClick={() => handleEdit(index)}
-//                     className="text-blue-500 hover:text-blue-700"
-//                   >
-//                     <FaEdit />
-//                   </button>
-//                   <button
-//                     onClick={() => handleDelete(index)}
-//                     className="text-red-500 hover:text-red-700"
-//                   >
-//                     <FaTrash />
-//                   </button>
-//                   <button
-//                     onClick={() => handleAddStat(index)}
-//                     className="text-green-500 hover:text-green-700"
-
-//                   >
-//                     <FaClipboardList />
-//                   </button>
-//                   <button
-//                    onClick={() => handleAddScoreCard(index)}
-//                     className="text-yellow-500 hover:text-yellow-700"
-
-//                   >
-//                     <FaPlus />
-//                   </button>
-//                 </td>
-//               </tr>
-//             ))}
-//           </tbody>
-//         </table>
-//       </div>
-
-//       {/* Popup for Adding Match Stat */}
-//       <MatchStatPopup
-//         isOpen={isPopupOpen}
-//         onClose={handlePopupClose}
-//         onSubmit={handlePopupSubmit}
-//       />
-//          <EditPopup
-//         isOpen={isEditPopupOpen}
-//         onClose={handleEditPopupClose}
-//         onSubmit={handleEditPopupSubmit}
-//         matchData={matches[currentMatchIndex]}
-//       />
-//     </div>
-//   );
-// };
-
-// export default MatchDetails;
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import { FaEdit, FaTrash, FaPlus, FaClipboardList } from "react-icons/fa";
 import MatchStatPopup from "../components/MatchStatPopUp.js"; // Import the new popup component
 import { useNavigate } from "react-router-dom"; // Import useNavigate
@@ -551,12 +7,17 @@ import EditPopup from "../components/EditMatchDetailPopup.js"; // Import the Edi
 import FormPopup from "../components/MatchFormPopUp.js"; // Import the new FormPopup component
 import { GrLinkNext } from "react-icons/gr";
 import { GrLinkPrevious } from "react-icons/gr";
+import flag from "../assets/images/flagbg.png";
 import Navbar from "../components/Navbar.js";
 import NavbarToggleMenu from "../components/NavbarToggleMenu.js";
+import HomeNavbar from "../components/HomeNavbar.js";
+import ScoreCardPopup from "../components/ScoreCardPopup.js";
+import PlayerFormPopup from "../components/ScoreCardPopup.js";
 
 const MatchDetails = () => {
   const [matches, setMatches] = useState([
     {
+      matchId:1,
       matchName: "Match 1",
       time: "2024-08-29T10:00",
       venue: "Stadium A",
@@ -567,6 +28,7 @@ const MatchDetails = () => {
       type: "ODI"
     },
     {
+      matchId:2,
       matchName: "Match 2",
       time: "2024-08-30T14:00",
       venue: "Stadium B",
@@ -577,6 +39,7 @@ const MatchDetails = () => {
       type: "T20"
     },
     {
+      matchId:3,
       matchName: "Match 3",
       time: "2024-08-29T10:00",
       venue: "Stadium A",
@@ -586,7 +49,52 @@ const MatchDetails = () => {
       umpire: "John Doe",
       type: "ODI"
     },
+    { 
+      matchId:4,
+      matchName: "Match 4",
+      time: "2024-08-30T14:00",
+      venue: "Stadium B",
+      opponent: "Team Y",
+      tier: "Tier 2",
+      division: "Division B",
+      umpire: "Jane Smith",
+      type: "T20"
+    },
     {
+      matchId:1,
+      matchName: "Match 1",
+      time: "2024-08-29T10:00",
+      venue: "Stadium A",
+      opponent: "Team X",
+      tier: "Tier 1",
+      division: "Division A",
+      umpire: "John Doe",
+      type: "ODI"
+    },
+    {
+      matchId:2,
+      matchName: "Match 2",
+      time: "2024-08-30T14:00",
+      venue: "Stadium B",
+      opponent: "Team Y",
+      tier: "Tier 2",
+      division: "Division B",
+      umpire: "Jane Smith",
+      type: "T20"
+    },
+    {
+      matchId:3,
+      matchName: "Match 3",
+      time: "2024-08-29T10:00",
+      venue: "Stadium A",
+      opponent: "Team X",
+      tier: "Tier 1",
+      division: "Division A",
+      umpire: "John Doe",
+      type: "ODI"
+    },
+    { 
+      matchId:4,
       matchName: "Match 4",
       time: "2024-08-30T14:00",
       venue: "Stadium B",
@@ -597,15 +105,17 @@ const MatchDetails = () => {
       type: "T20"
     }
   ]);
-
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [matchId, setMatchId] = useState(null);
   const navigate = useNavigate();
   const [currentMatchIndex, setCurrentMatchIndex] = useState(null);
   const [isEditPopupOpen, setIsEditPopupOpen] = useState(false); // State for Edit Popup
   const [isFormPopupOpen, setIsFormPopupOpen] = useState(false); // State for Form Popup
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const rowsPerPage = 2; // Number of rows per page
+  const rowsPerPage = 4; // Number of rows per page
   const [currentPage, setCurrentPage] = useState(1);
+  const [isScorePopupOpen, setIsScorePopupOpen] = useState(false);
+  
 
   const totalPages = Math.ceil(matches.length / rowsPerPage);
 
@@ -639,12 +149,30 @@ const MatchDetails = () => {
 
   const handleAddStat = index => {
     setCurrentMatchIndex(index);
-    setIsPopupOpen(true); // Open the popup when the button is clicked
+    setIsPopupOpen(true); 
   };
 
-  const handleAddScoreCard = index => {
-    const matchId = index; // Use index or a unique ID from your match data
-    navigate(`/scorecard/${matchId}`);
+  const handleAddScoreCard = (matchId) => {
+    setMatchId(matchId); 
+    // navigate(`/scorecard/${matchId}`);
+    setIsScorePopupOpen(true);
+  };
+  const handleFormSubmit = playerData => {
+    // Add matchId to player data and update the players state
+    // setPlayers([...players, { ...playerData, matchId }]);
+    //handleFormClose();
+  };
+  const handleEditPopupSubmit = updatedMatchData => {
+    const updatedMatches = matches.map(
+      (match, index) => (index === currentMatchIndex ? updatedMatchData : match)
+    );
+    setMatches(updatedMatches);
+    setIsEditPopupOpen(false);
+    setCurrentMatchIndex(null);
+  };
+
+  const handleFormPopupClose = () =>{
+    setIsFormPopupOpen(false);
   };
 
   const handlePopupClose = () => {
@@ -657,17 +185,8 @@ const MatchDetails = () => {
     setCurrentMatchIndex(null);
   };
 
-  const handleEditPopupSubmit = updatedMatchData => {
-    const updatedMatches = matches.map(
-      (match, index) => (index === currentMatchIndex ? updatedMatchData : match)
-    );
-    setMatches(updatedMatches);
-    setIsEditPopupOpen(false);
-    setCurrentMatchIndex(null);
-  };
-
-  const handleFormPopupClose = () => {
-    setIsFormPopupOpen(false);
+  const handleScorePopupClose = () => {
+    setIsScorePopupOpen(false);
   };
 
   const handleFormPopupSubmit = newMatchData => {
@@ -680,23 +199,34 @@ const MatchDetails = () => {
   };
 
   return (
-    <div className=" flex relative w-full p-5 bg-gray-100 rounded-lg shadow-lg">
-      <Navbar/>
+    <div
+    className="h-screen w-screen"
+    style={{
+      backgroundImage: `url(${flag})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center"
+    }}
+  >
+    <HomeNavbar/>
+    <div className=" flex relative top-24 p-2 w-full">
+      <div className="lg:w-[5%]">
+        <Navbar/>
+      </div>  
       <div
-        className=" relative md:w-[85%] w-[100%] bg-white lg:mx-3 p-5 rounded-lg shadow-lg"
+        className="  h-full relative bg-gray-100 lg:w-[95%] w-[100%] lg:mx-3 lg:px-10 lg:py-5 p-5 lg:rounded-tl-[3rem] rounded-lg shadow-lg"
         style={{
           backdropFilter: "blur(10px)",
-          backgroundColor: "rgba(192, 192, 192, 0)",
           boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
           border: "1px solid rgba(255, 255, 255, 0.3)"
         }}
       >
         <div className="flex justify-between items-center mb-4">
           <NavbarToggleMenu/>
-          <h2 className="md:text-2xl text-xl mb-6 font-bold text-center text-gray-800">
+          <h2 className="md:text-2xl text-xl mb-6 font-bold text-center font-popins text-gray-800">
             Match Details
           </h2>
           <button
+            title="Add New"
             onClick={() => setIsFormPopupOpen(true)}
             className="bg-green-500 hover:bg-green-700 rounded-full p-1 text-white text-lg lg:text-2xl"
           >
@@ -768,6 +298,7 @@ const MatchDetails = () => {
                   </td>
                   <td className="py-4 px-4 flex space-x-2 h-16 whitespace-nowrap text-sm text-gray-600">
                     <button
+                      title="Edit"
                       onClick={() => handleEdit(index)}
                       className=" text-green-500 hover:text-green-700"
                     >
@@ -775,18 +306,21 @@ const MatchDetails = () => {
                     </button>
                     <button
                       onClick={() => handleDelete(index)}
+                      title="Delete"
                       className="text-red-500 hover:text-red-700"
                     >
                       <FaTrash />
                     </button>
                     <button
                       onClick={() => handleAddStat(index)}
+                      title="Add"
                       className="text-blue-500 hover:text-blue-700"
                     >
                       <FaClipboardList />
                     </button>
                     <button
-                      onClick={() => handleAddScoreCard(index)}
+                      title="Add Score"
+                      onClick={() => handleAddScoreCard(match.matchId)}
                       className="text-yellow-500 hover:text-yellow-700"
                     >
                       <FaPlus />
@@ -837,8 +371,202 @@ const MatchDetails = () => {
         onSubmit={handleEditPopupSubmit}
         matchData={matches[currentMatchIndex]}
       />
+      {/* Player Form Popup */}
+      <ScoreCardPopup    
+        isOpen={isScorePopupOpen}
+        onClose={handleScorePopupClose}
+        onSubmit={handleAddScoreCard}
+        matchId={matchId}
+        
+      />
     </div>
+  </div>
   );
 };
 
 export default MatchDetails;
+
+// const [matchStackBatting, setMatchStackBatting] = useState([
+//   // Dummy data for batting side
+//   {
+//     id: 1,
+//     match_id: 1,
+//     player_id: 1,
+//     playerName: "Player 1",
+//     runs: 45,
+//     balls: 30,
+//     Maidens:40,
+//     fours: 6,
+//     sixes: 2,
+//     fifties: 0,
+//     hundreds: 0,
+//     strikeRate: 166.67
+//   },
+//   {
+//     id: 2,
+//     match_id: 1,
+//     player_id: 2,
+//     playerName: "Player 2",
+//     runs: 45,
+//     balls: 30,
+//     Maidens:40,
+//     fours: 6,
+//     sixes: 2,
+//     fifties: 0,
+//     hundreds: 0,
+//     strikeRate: 166.67
+//   },
+//   {
+//     id: 3,
+//     match_id: 1,
+//     player_id: 3,
+//     playerName: "Player 3",
+//     runs: 45,
+//     balls: 30,
+//     Maidens:40,
+//     fours: 6,
+//     sixes: 2,
+//     fifties: 0,
+//     hundreds: 0,
+//     strikeRate: 166.67
+//   },
+//   {
+//     id: 4,
+//     match_id: 2,
+//     player_id: 1,
+//     playerName: "Player 1",
+//     runs: 45,
+//     balls: 30,
+//     Maidens:40,
+//     fours: 6,
+//     sixes: 2,
+//     fifties: 0,
+//     hundreds: 0,
+//     strikeRate: 166.67
+//   },
+//   {
+//     id: 5,
+//     match_id: 2,
+//     player_id: 2,
+//     playerName: "Player 2",
+//     runs: 45,
+//     balls: 30,
+//     Maidens:40,
+//     fours: 6,
+//     sixes: 2,
+//     fifties: 0,
+//     hundreds: 0,
+//     strikeRate: 166.67
+//   },
+//   {
+//     id: 6,
+//     match_id: 2,
+//     player_id: 3,
+//     playerName: "Player 3",
+//     runs: 45,
+//     balls: 30,
+//     Maidens:40,
+//     fours: 6,
+//     sixes: 2,
+//     fifties: 0,
+//     hundreds: 0,
+//     strikeRate: 166.67
+//   }
+// ]);
+
+// const [matchStackBowlig, setMatchStackBowling] = useState([
+//   // Dummy data for batting side
+//   {
+//     id: 1,
+//     match_id: 1,
+//     player_id: 1,
+//     playerName: "Player 1",
+//     overs: 10,
+//     Maidens:40,
+//     runConceded: 55,
+//     wickets: 2,
+//     wides:2,
+//     noBolls:1,
+//     economyRate: 7.8
+//   },
+//   {
+//     id: 2,
+//     match_id: 1,
+//     player_id: 2,
+//     playerName: "Player 2",
+//     overs: 10,
+//     Maidens:40,
+//     runConceded: 55,
+//     wickets: 2,
+//     wides:2,
+//     noBolls:1,
+//     economyRate: 7.8
+//   },
+//   {
+//     id: 3,
+//     match_id: 1,
+//     player_id: 3,
+//     playerName: "Player 3",
+//     overs: 10,
+//     Maidens:40,
+//     runConceded: 55,
+//     wickets: 2,
+//     wides:2,
+//     noBolls:1,
+//     economyRate: 7.8
+//   },
+//   {
+//     id: 4,
+//     match_id: 2,
+//     player_id: 1,
+//     playerName: "Player 1",
+//     overs: 10,
+//     Maidens:40,
+//     runConceded: 55,
+//     wickets: 2,
+//     wides:2,
+//     noBolls:1,
+//     economyRate: 7.8
+//   },
+//   {
+//     id: 5,
+//     match_id: 2,
+//     player_id: 2,
+//     playerName: "Player 2",
+//     overs: 10,
+//     Maidens:40,
+//     runConceded: 55,
+//     wickets: 2,
+//     wides:2,
+//     noBolls:1,
+//     economyRate: 7.8
+//   },
+//   {
+//     id: 6,
+//     match_id: 2,
+//     player_id: 3,
+//     playerName: "Player 3",
+//     overs: 10,
+//     Maidens:40,
+//     runConceded: 55,
+//     wickets: 2,
+//     wides:2,
+//     noBolls:1,
+//     economyRate: 7.8
+//   }
+// ]);
+// const [formData, setFormData] = useState({
+//   id: null,
+//   match_id: null,
+//   player_id: null,
+//   playerName: "",
+//   runs: null,
+//   wickets: null,
+//   overs: null,
+//   runConceded: null,
+//   fours: null,
+//   sixes: null,
+//   fifties: null,
+//   hundreds: null,
+//   balls: null
+// });
