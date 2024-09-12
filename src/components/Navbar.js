@@ -10,39 +10,30 @@ import logo from "../assets/images/rcclogo.png";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-      return (
+    return (
         <>
             <div
-                className={`md:flex hidden flex-col md:w-[15%] justify-start items-center bg-gray-300 w-[15%] h-[40rem]`}
-                style={{
-                backgroundImage: `url(${back})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backfaceVisibility: "revert-layer"
-                }}
+                className={`md:flex hidden flex-col justify-center  rounded-tr-md items-center`}
             >
-            <div className=" items-center w-full bg-opacity-40 bg-white flex justify-start p-2 ">
-                <img src={logo} className="flex opacity-100 w-20 h-20" alt="no" />
+                <ul className="flex flex-col w-full items-center justify-center mt-5 pl-1">
+                    <Link to={"/"} className={` group flex flex-col gap-2 pl-2 py-4 cursor-pointer text-2xl items-center text-center justify-center p-2 text-white w-full `}>
+                        {" "}<IoHomeSharp /> <span className="text-sm  text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1">Home</span>
+                    </Link>
+                    <Link to={"/player"} className=" group flex flex-col gap-2 pl-2 py-4 items-center text-2xl text-center justify-center p-2 text-white w-full">
+                        {" "}<BsPersonFill /> <span className="text-sm text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1">Player</span>
+                    </Link >
+                    <Link to={"/match"} className=" group flex flex-col gap-2 py-4 pl-2 cursor-pointer text-2xl items-center justify-center p-2  text-white w-full ">
+                        {" "}<BiSolidCricketBall /> <span className="text-sm text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1">Matches</span>
+                    </Link>
+                    <Link to={"/scorecard/:matchId"} className=" group flex flex-col pl-2 gap-2 py-4 text-2xl cursor-pointer items-center justify-center p-2  text-white w-full">
+                        {" "}<TbScoreboard /> <span className="text-sm text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1">Score</span>
+                    </Link>
+                    <Link to={"/team"} className=" gap-3 flex flex-col group cursor-pointer pl-2 py-4 text-2xl items-center justify-center p-2  text-white w-full">
+                        {" "}<RiTeamFill /> <span className="text-sm text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1">Team</span>
+                    </Link>
+                </ul>
             </div>
-            <ul className="w-full items-center justify-center mt-5">
-            <Link to={"/"} className=" flex gap-3  cursor-pointer items-center p-2 pl-5 text-white w-full hover:bg-gray-300 hover:bg-opacity-10">
-                {" "}<IoHomeSharp /> Home
-            </Link>
-            <Link to={"/player"} className=" flex gap-3 items-center p-2 pl-5 text-white w-full hover:bg-gray-300 hover:bg-opacity-10">
-                {" "}<BsPersonFill /> Player
-            </Link >
-            <Link to={"/match"} className=" flex gap-3 cursor-pointer items-center p-2 pl-5 text-white w-full hover:bg-gray-300 hover:bg-opacity-10">
-                {" "}<BiSolidCricketBall /> Match
-            </Link>
-            <Link to={"/scorecard/:matchId"} className=" flex gap-3 cursor-pointer items-center p-2 pl-5 text-white w-full hover:bg-gray-300 hover:bg-opacity-10">
-                {" "}<TbScoreboard /> Score
-            </Link>
-            <Link to={"/team"} className=" flex gap-3 cursor-pointer items-center p-2 pl-5 text-white w-full hover:bg-gray-300 hover:bg-opacity-10">
-                {" "}<RiTeamFill /> Team
-            </Link>
-            </ul>
-        </div>
-    </>
+        </>
        
     );
 
