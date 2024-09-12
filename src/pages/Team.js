@@ -9,6 +9,8 @@ import { BiSolidCricketBall } from "react-icons/bi";
 import { BsPersonFill } from "react-icons/bs";
 import back from "../assets/images/back3.png";
 import logo from "../assets/images/rcclogo.png";
+import flag from "../assets/images/flagbg.png";
+import HomeNavbar from "../components/HomeNavbar";
 import { FaXmark, FaBars } from "react-icons/fa6";
 import { GrLinkNext } from "react-icons/gr";
 import { GrLinkPrevious } from "react-icons/gr";
@@ -89,12 +91,22 @@ const TableComponent = () => {
   };
 
   return (
-    <div className="flex relative w-full p-5 bg-gray-100 rounded-lg shadow-lg">
-      <Navbar/>
-      <div  className=" relative md:w-[85%] w-[100%] bg-white lg:mx-3 p-5 rounded-lg shadow-lg"
+    <div
+      className="h-screen w-screen"
+      style={{
+        backgroundImage: `url(${flag})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center"
+      }}
+    >
+      <HomeNavbar />
+      <div className=" flex relative top-24 p-2 w-full">
+        <div className=" lg:w-[5%] ">
+          <Navbar />
+        </div>
+      <div  className=" h-full relative bg-gray-100 lg:w-[95%] w-[100%] lg:mx-3 lg:px-10 lg:py-5 p-5 lg:rounded-tl-[3rem] rounded-lg shadow-lg"
         style={{
           backdropFilter: "blur(10px)",
-          backgroundColor: "rgba(192, 192, 192, 0)",
           boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
           border: "1px solid rgba(255, 255, 255, 0.3)"
         }}>
@@ -212,6 +224,7 @@ const TableComponent = () => {
             onClose={() => setIsEditModalOpen(false)}
             onSubmit={handleEditSubmit}
           />}
+      </div>
       </div>
   );
 };
